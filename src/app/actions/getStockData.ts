@@ -4,7 +4,7 @@ import { StockData } from '../types';
 export const getStockData = async (ticker: string, startDate: string, endDate: string): Promise<StockData[]> => {
     try {
         console.log("hi")
-        const response = await axios.get('/api/stockData'); // Call the API route
+        const response = await axios.get('/api/stockData'); 
         console.log(response)
         // Filter stock data by ticker and date range
         const stockData: StockData[] = response.data.filter((row: StockData) => {

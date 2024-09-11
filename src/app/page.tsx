@@ -26,7 +26,7 @@ export default function StockPage() {
         return;
       }
 
-      setStockData(data); // Set stock data
+      setStockData(data); 
 
       const returns = calculateReturns(data);
       setStockReturns(returns);

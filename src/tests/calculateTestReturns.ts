@@ -1,4 +1,3 @@
-// app/actions/calculateReturns.ts
 import { StockData, StockReturn } from '../app/types';
 
 export const calculateReturns = (stockData: StockData[]): StockReturn[] => {

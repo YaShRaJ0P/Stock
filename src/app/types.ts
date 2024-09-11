@@ -10,7 +10,7 @@ export interface StockReturn {
     ticker: string;
     dailyReturn: number;
 }
-// src/types.ts
+
 export interface CsvRow {
     Date: string;
     open: number;

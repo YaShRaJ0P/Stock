@@ -1,9 +1,9 @@
-// src/components/LineChart.tsx
 import React from "react";
 import { Line } from "react-chartjs-2";
-import "../chartSetup"; // Import the setup file to register components
+import "../chartSetup";
 import { StockData, StockReturn } from "@/app/types";
 import "chart.js/auto";
+import { TooltipItem, ChartData, ChartOptions } from "chart.js";
 
 interface LineChartProps {
   stockData: StockData[];
@@ -11,7 +11,7 @@ interface LineChartProps {
 }
 
 const LineChart: React.FC<LineChartProps> = ({ stockData, stockReturns }) => {
-  const chartData = {
+  const chartData: ChartData<"line", number[]> = {
     labels: stockData.map((d) => d.date),
     datasets: [
       {
@@ -24,15 +24,16 @@ const LineChart: React.FC<LineChartProps> = ({ stockData, stockReturns }) => {
     ],
   };
 
-  const options = {
+  const options: ChartOptions<"line"> = {
     responsive: true,
     plugins: {
       legend: {
-        position: "top" as const,
+        position: "top",
       },
       tooltip: {
         callbacks: {
-          label: (context: any) => `${context.dataset.label}: ${context.raw}%`,
+          label: (context: TooltipItem<"line">) =>
+            `${context.dataset.label}: ${context.raw}%`,
         },
       },
     },

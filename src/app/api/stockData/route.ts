@@ -10,7 +10,6 @@ export async function GET() {
     try {
         const csvFile = fs.readFileSync(filePath, 'utf8');
 
-        console.log(csvFile)
         const parsedData = Papa.parse<CsvRow>(csvFile, {
             header: true,
             dynamicTyping: true,
