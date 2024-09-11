@@ -1,6 +1,5 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import "../chartSetup";
 import { StockData, StockReturn } from "@/app/types";
 import "chart.js/auto";
 import { TooltipItem, ChartData, ChartOptions } from "chart.js";
