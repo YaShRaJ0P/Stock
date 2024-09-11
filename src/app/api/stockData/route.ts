@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
 import Papa from 'papaparse';
-import { StockData } from '../../types';
+import { CsvRow, StockData } from '../../types';
 
 const filePath = path.join(process.cwd(), 'src', 'app', 'Stock_Prices.csv');
 
@@ -11,12 +11,12 @@ export async function GET() {
         const csvFile = fs.readFileSync(filePath, 'utf8');
 
         console.log(csvFile)
-        const parsedData = Papa.parse(csvFile, {
+        const parsedData = Papa.parse<CsvRow>(csvFile, {
             header: true,
             dynamicTyping: true,
             skipEmptyLines: true,
         });
-        const stockData: StockData[] = parsedData.data.map((row: any) => ({
+        const stockData: StockData[] = parsedData.data.map((row) => ({
             date: row['Date'],
             price: row['close'],
             ticker: row['ticker'],
