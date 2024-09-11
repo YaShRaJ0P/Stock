@@ -26,7 +26,7 @@ export default function StockPage() {
         return;
       }
 
-      setStockData(data); 
+      setStockData(data);
 
       const returns = calculateReturns(data);
       setStockReturns(returns);
@@ -41,9 +41,9 @@ export default function StockPage() {
     <div className="container mx-auto p-6">
       <div className="mb-4">
         <input
-          className="border p-2"
+          className="border p-2 text-black"
           type="text"
-          placeholder="Enter stock ticker (e.g., AAPL)"
+          placeholder="Enter stock ticker (e.g., AAL)"
           value={ticker}
           onChange={(e) => setTicker(e.target.value)}
         />
